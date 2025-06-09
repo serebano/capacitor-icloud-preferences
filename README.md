@@ -4,13 +4,13 @@ Sync preferences to iCloud using NSUbiquitousKeyValueStore.
 
 ## Installation
 ```bash
-npm install ./capacitor-icloud-preferences
+npm install @serebano/capacitor-icloud-preferences
 npx cap sync ios
 ```
 
 ## Usage
 ```ts
-import { iCloudPreferences } from 'capacitor-icloud-preferences';
+import { iCloudPreferences } from '@serebano/capacitor-icloud-preferences';
 
 await iCloudPreferences.set({ key: 'theme', value: 'dark' });
 const result = await iCloudPreferences.get({ key: 'theme' });
