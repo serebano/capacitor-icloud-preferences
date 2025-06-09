@@ -9,6 +9,9 @@
     "url": "https://github.com/serebano/capacitor-icloud-preferences"
   },
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w"
