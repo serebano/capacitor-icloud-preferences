@@ -1,6 +1,6 @@
 {
   "name": "@serebano/capacitor-icloud-preferences",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Capacitor plugin for iCloud key-value sync",
   "author": "Serebano",
   "license": "MIT",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "capacitor",

@@ -4,6 +4,7 @@ import Capacitor
 @objc(iCloudPreferencesPlugin)
 public class iCloudPreferencesPlugin: CAPPlugin {
     let store = NSUbiquitousKeyValueStore.default
+    private var keysToSync: [String] = []
 
     @objc func set(_ call: CAPPluginCall) {
         guard let key = call.getString("key") else {
@@ -40,5 +41,31 @@ public class iCloudPreferencesPlugin: CAPPlugin {
         store.removeObject(forKey: key)
         store.synchronize()
         call.resolve()
+    }
+
+    @objc func configureSyncKeys(_ call: CAPPluginCall) {
+        if let keys = call.getArray("keys", String.self) {
+            self.keysToSync = keys
+            call.resolve()
+        } else {
+            call.reject("keys array is required")
+        }
+    }
+
+    public override func load() {
+        syncAllKeysToPreferences()
+    }
+
+    private func syncAllKeysToPreferences() {
+        guard !keysToSync.isEmpty else { return }
+
+        var synced: [String: Any] = [:]
+        for key in keysToSync {
+            if let value = store.object(forKey: key) {
+                synced[key] = value
+            }
+        }
+
+        notifyListeners("icloudSyncComplete", data: synced)
     }
 }
