@@ -5,5 +5,19 @@
   </js-module>
   <platform name="ios">
     <source-file src="ios/Plugin/iCloudPreferencesPlugin.swift" />
+    <header-file src="ios/Plugin/iCloudPreferencesPlugin.swift" />
+    <config-file target="Info.plist" parent="NSUbiquitousContainers">
+      <dict>
+        <key>iCloud.com.serebano.capacitor-icloud-preferences</key>
+        <dict>
+          <key>NSUbiquitousContainerIsDocumentScopePublic</key>
+          <true/>
+          <key>NSUbiquitousContainerName</key>
+          <string>iCloud Preferences</string>
+          <key>NSUbiquitousContainerSupportedFolderLevels</key>
+          <string>None</string>
+        </dict>
+      </dict>
+    </config-file>
   </platform>
 </plugin>

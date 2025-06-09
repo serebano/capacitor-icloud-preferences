@@ -43,6 +43,17 @@ public class iCloudPreferencesPlugin: CAPPlugin {
         call.resolve()
     }
 
+    @objc func setContainer(_ call: CAPPluginCall) {
+        guard let identifier = call.getString("identifier") else {
+            call.reject("Identifier is required")
+            return
+        }
+
+        // Note: NSUbiquitousKeyValueStore doesn't support changing containers at runtime
+        // This method is included for API compatibility but may not have the expected effect
+        call.resolve()
+    }
+
     @objc func configureSyncKeys(_ call: CAPPluginCall) {
         if let keys = call.getArray("keys", String.self) {
             self.keysToSync = keys
