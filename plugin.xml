@@ -1,0 +1,9 @@
+<plugin>
+  <name>iCloudPreferences</name>
+  <js-module src="dist/esm/index.js" name="iCloudPreferences">
+    <clobbers target="iCloudPreferences" />
+  </js-module>
+  <platform name="ios">
+    <source-file src="ios/Plugin/iCloudPreferencesPlugin.swift" />
+  </platform>
+</plugin>

@@ -1,0 +1,43 @@
+{
+  "name": "@serebano/capacitor-icloud-preferences",
+  "version": "0.0.1",
+  "description": "Capacitor plugin for iCloud key-value sync",
+  "author": "Serebano",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/serebano/capacitor-icloud-preferences"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "icloud",
+    "preferences"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    }
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.3.0",
+    "@rollup/plugin-typescript": "12.1.2",
+    "rollup": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  }
+}
